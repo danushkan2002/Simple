@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  background-image: linear-gradient(to right, rgb(224, 153, 0) , rgb(255, 94, 0));
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

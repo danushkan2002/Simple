@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 
 
 const RegisterScreen = () => {
@@ -112,6 +114,11 @@ const RegisterScreen = () => {
                 </div>
               </div>
 
+            </div>
+
+            <div className='h-[50px] w-full'>
+              <Message color={'red'} >{error}</Message>
+              {loading && <Loader/> }
             </div>
 
             {/* submit */}

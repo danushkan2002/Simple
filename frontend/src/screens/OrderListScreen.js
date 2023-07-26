@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { MdVerified } from 'react-icons/md'
 import { listOrders } from '../actions/orderActions'
 import { Link, useNavigate } from 'react-router-dom'
+import { VscUnverified } from 'react-icons/vsc'
 
 const OrderListScreen = () => {
   const dispatch = useDispatch()
@@ -51,18 +52,18 @@ const OrderListScreen = () => {
                       <p className='w-[30%] opacity-50 capitalize'>{item.user && item.user.name}</p>
                       <p className='w-[20%] opacity-50 capitalize'>{item.createdAt.substring(0, 10)}</p>
                       <p className='w-[20%] opacity-50 capitalize'>${item.totalPrice}</p>
-                      <p className='w-[10%] opacity-50 capitalize'>
+                      <p className='w-[10%] opacity-50 capitalize text-xl'>
                       {item.isPaid ? (
-                          item.paidAt.substring(0, 10)
+                          <MdVerified/>
                       ) : (
-                              <i className='fas fa-check' style={{ color: 'red' }}></i>
+                              <VscUnverified className='text-red-600'/>
                           )}
                       </p>
-                      <p className='w-[10%] opacity-50 capitalize'>
+                      <p className='w-[10%] opacity-50 capitalize text-xl'>
                       {item.isDelivered ? (
-                          item.deliveredAt.substring(0, 10)
+                          <MdVerified/>
                       ) : (
-                              <i className='fas fa-check' style={{ color: 'red' }}></i>
+                              <VscUnverified className='text-red-600'/>
                           )}
                       </p>
                     </Link>

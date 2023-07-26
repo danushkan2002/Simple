@@ -66,7 +66,7 @@ const ProductListScreen = () => {
               <p>error</p> :
               <div className='h-fit w-full flex flex-col'>
                 <div className='h-[50px] w-full flex items-center border-b-[1px] border-black border-opacity-5'>                   
-                    <p className='w-[10%] opacity-50 capitalize'>id</p>
+                    <p className='w-[10%] opacity-50 capitalize'>Product id</p>
                     <p className='w-[30%] opacity-50 capitalize'>name</p>
                     <p className='w-[20%] opacity-50 capitalize'>price</p>
                     <p className='w-[20%] opacity-50 capitalize'>Brand</p>

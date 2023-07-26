@@ -95,7 +95,7 @@ const ProductEditScreen = () => {
   }
 
   return (
-    <section className='h-fit w-full md:px-[50px] lg:px-[75px] md:py-[50px] flex flex-col gap-[100px] bg-30'>
+    <section className='h-fit w-full md:px-[50px] lg:px-[75px] md:py-[50px] flex flex-col gap-[100px]'>
         <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row items-start justify-center gap-[25px] md:gap-[50px]'>
           <form onSubmit={submitHandler} className='h-fit w-full md:w-fit py-[25px] md:py-[50px] px-[15px] md:px-[50px] md:bg-white'>
 

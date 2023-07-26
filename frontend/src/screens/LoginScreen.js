@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userActions'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 const LoginScreen = () => {
 
@@ -31,7 +33,7 @@ const LoginScreen = () => {
     }
 
   return (
-    <section className='h-screen w-screen md:bg-30'>
+    <section className='h-screen w-screen '>
       <div className='h-full w-full md:px-[50px] lg:px-[75px]'>
         <div className='h-full w-full max-w-[1024px] mx-auto flex md:items-center justify-center md:justify-start'>
           <form onSubmit={submitHandler} className='h-fit w-full md:w-fit py-[25px] md:py-[100px] px-[15px] md:px-[50px] md:bg-white'>
@@ -75,7 +77,10 @@ const LoginScreen = () => {
               </div>
 
             </div>
-
+            <div className='h-[50px] w-full'>
+              <Message color={'red'} >{error}</Message>
+              {loading && <Loader/> }
+            </div>
             {/* forgot password */}
             <div className='h-fit w-full flex justify-end items-center pb-[25px]'>
                   <button className='text-sm capitalize text-right hover:text-10 duration-100'>forgot password</button>

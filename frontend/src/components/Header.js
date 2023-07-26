@@ -22,15 +22,15 @@ const Header = () => {
   return (
     <div className={
         location.pathname === '/login/' || location.pathname === '/register/' ?
-        'hidden h-[65px] md:h-[100px]  w-full bg-white shadow-[0_4px_10px_0px_rgba(0,0,0,0.05)] px-[15px] sm:px-[25px] md:px-[50px] z-50':
-        'h-[65px] md:h-[100px]  w-full bg-white shadow-[0_4px_10px_0px_rgba(0,0,0,0.05)] px-[15px] sm:px-[25px] md:px-[50px] z-50'
+        'hidden h-[65px] md:h-[100px]  w-full bg-transparent px-[15px] sm:px-[25px] md:px-[50px] z-50':
+        'h-[65px] md:h-[100px]  w-full bg-transparent px-[15px] sm:px-[25px] md:px-[50px] z-50'
     }>
-        <div className='h-full w-full max-w-[1024px] mx-auto flex items-center relative'>
-            <Link to={'/'} className='absolute'>
-                <p className='text-10 font-medium text-xl md:text-3xl'>Simple.</p>
+        <div className='h-full w-full max-w-[1024px] mx-auto flex items-center relative gap-[25px]'>
+            <Link to={'/'} className=''>
+                <p className='text-10 font-medium text-xl '>My website.</p>
             </Link>
       
-            <div className='absolute right-0 flex gap-[25px]'>
+            <div className=' flex gap-[25px]'>
                 {
                     userInfo ?
                     <div className='flex items-center gap-[25px]'>
@@ -80,11 +80,11 @@ const Header = () => {
                         <BiSolidShoppingBag className='text-2xl md:text-sm'/>
                     </p>
                 </Link>
-                <Link to={'/search/'} className='opacity-50 hover:opacity-100 flex items-center justify-center'>
+                {/* <Link to={'/search/'} className='opacity-50 hover:opacity-100 flex items-center justify-center'>
                     <p className='text-black font-medium text-sm uppercase'>
                         <BiSearch className='text-2xl md:text-sm'/>
                     </p>
-                </Link>
+                </Link> */}
                 {/* <button className='opacity-50 hover:opacity-100'>
                     <p className='text-black font-medium text-sm capitalize'>
                         Danushkan
