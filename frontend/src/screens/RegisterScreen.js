@@ -41,10 +41,10 @@ const RegisterScreen = () => {
     }
 
   return (
-    <section className='h-screen w-screen md:bg-30'>
+    <section className='h-screen w-full '>
       <div className='h-full w-full md:px-[50px] lg:px-[75px] '>
         <div className='h-full w-full max-w-[1024px] mx-auto flex md:items-center justify-center md:justify-start'>
-          <form onClick={submitHandler} className='h-fit w-full md:w-fit py-[25px] md:py-[100px] px-[15px] md:px-[50px] md:bg-white'>
+          <form onClick={submitHandler} className='h-fit w-full md:w-fit py-[25px] md:py-[50px] px-[15px] md:px-[50px] md:bg-white'>
 
             {/* title */}
             <div className='h-fit w-full md:w-[350px] pb-[25px] md:pb-[10px]'>

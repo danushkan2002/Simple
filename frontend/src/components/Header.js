@@ -60,10 +60,15 @@ const Header = () => {
                 {
                     userInfo && userInfo.isAdmin ?
                                         
-                    <div className='h-fit w-fit flex items-center'>
+                    <div className='h-fit w-fit flex items-center gap-[25px]'>
                         <Link to={'/admin/dashboard'} className='opacity-50 hover:opacity-100 flex items-center justify-center'>
                             <p className='text-black font-medium text-sm capitalize'>
                                 dashboard
+                            </p>
+                        </Link>
+                        <Link to={'/admin/report'} className='opacity-50 hover:opacity-100 flex items-center justify-center'>
+                            <p className='text-black font-medium text-sm capitalize'>
+                                report
                             </p>
                         </Link>
                     </div>

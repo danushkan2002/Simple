@@ -6,9 +6,10 @@ import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 import { MdOutlineStarHalf, MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md"
 import { VscSettings } from 'react-icons/vsc'
 import { HiMiniArrowLongRight, HiOutlineArrowLongRight } from 'react-icons/hi2'
-import dayjs from "dayjs"
 import { BiMinus, BiPlus } from 'react-icons/bi'
 import Rating from '../components/Rating'
+import { listOrders } from '../actions/orderActions'
+
 
 const ProductScreen = () => {
     const [qty, setQty] = useState(1)
@@ -21,6 +22,9 @@ const ProductScreen = () => {
 
     const productDetails = useSelector(state => state.productDetails)
     const { loading, error, product } = productDetails
+
+    const orderList = useSelector(state => state.orderList)
+    const { orders } = orderList
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -40,8 +44,10 @@ const ProductScreen = () => {
         }
 
         dispatch(listProductDetails(pid))
-
-    }, [dispatch, pid, successProductReview, ])
+        if (userInfo && userInfo.isAdmin) {
+            dispatch(listOrders())
+        }
+    }, [dispatch, pid, successProductReview, userInfo ])
 
     const addToCartHandler = () => {
         history(`/cart/${pid}?qty=${qty}`)
@@ -67,6 +73,7 @@ const ProductScreen = () => {
 
     useEffect(() => {    
       dispatch(listProductDetails(pid))
+      
     }, [pid, dispatch])
     
 
@@ -133,18 +140,22 @@ const ProductScreen = () => {
                             </div>
                         </div>
                     </div>
+                    
                     {
                         userInfo && userInfo.isAdmin && product?
                         <div className='h-fit w-full px-[100px] border-y-[1px] py-[50px]'>
                             <div className='w-[200px] flex flex-col py-[50px]'>
                                 <div className='flex justify-between'>
-                                    <p className='capitalize opacity-50'>Total Reviews</p>: <p className=''>10</p>
+                                    <p className='capitalize opacity-50'>Total Reviews</p>: <p className=''>{product.reviews.map(i=>i).length}</p>
                                 </div>
                                 <div className='flex justify-between'>
-                                    <p className='capitalize opacity-50'>Positive Reviews</p>: <p className=''>5</p>
+                                    <p className='capitalize opacity-50'>Positive Reviews</p>: <p className=''>{
+                                        (product.reviews.filter(i => i.rating < 3).length)
+                                    }</p>
                                 </div>
                                 <div className='flex justify-between'>
-                                    <p className='capitalize opacity-50'>Negative Reviews</p>: <p className=''>5</p>
+                                    <p className='capitalize opacity-50'>Negative Reviews</p>: <p className=''>{
+                                    (product.reviews.filter(i => i.rating >= 3).length)}</p>
                                 </div>
                             </div>
                             <div className='h-fit w-full max-w-[1024px] mx-auto flex items-end justify-between px-[50px] py-[25px] border-l-[1px] border-b-[1px]'>
@@ -234,6 +245,7 @@ const ProductScreen = () => {
                         </div>:
                         ''
                     }
+
                     <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col items-start gap-[25px] px-[15px] md:px-0'>
                         <div className='h-[50px] w-full flex items-center'>
                             <div className='h-fit w-fit flex items-center gap-[5px]'>

@@ -114,9 +114,7 @@ const ProfileScreen = () => {
                     <input type='password' autoComplete={false} autoSave={false} required={true} value={password} onChange={(e) => setPassword(e.target.value)} className='relative z-20 h-[40px] w-full outline-none bg-transparent'></input>
                   </div>
                 </div>
-
-              
-
+                              
               </div>
 
               {/* submit */}

@@ -30,11 +30,11 @@ const ProductListScreen = () => {
         dispatch({ type: PRODUCT_CREATE_RESET })
 
         if (!userInfo.isAdmin) {
-            history.push('/login')
+            history('/login')
         }
 
         if (successCreate) {
-            history.push(`/admin/product/${createdProduct._id}/edit`)
+            history(`/admin/product/${createdProduct._id}/edit`)
         } else {
             dispatch(listProducts(keyword))
         }
@@ -54,7 +54,7 @@ const ProductListScreen = () => {
     }
 
   return (
-    <div>
+    <div className='bg-white'>
       <section className='h-fit w-full md:px-[50px] lg:px-[75px] md:py-[50px] flex flex-col gap-[100px]'>
         <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row items-start gap-[25px] md:gap-[50px]'>
           <div className='h-fit w-full flex flex-col justify-center gap-[25px]'>
@@ -65,25 +65,29 @@ const ProductListScreen = () => {
               error ?
               <p>error</p> :
               <div className='h-fit w-full flex flex-col'>
-                <div className='h-[50px] w-full flex items-center border-b-[1px] border-black border-opacity-5'>                   
-                    <p className='w-[10%] opacity-50 capitalize'>Product id</p>
-                    <p className='w-[30%] opacity-50 capitalize'>name</p>
-                    <p className='w-[20%] opacity-50 capitalize'>price</p>
-                    <p className='w-[20%] opacity-50 capitalize'>Brand</p>
+                <div className='h-[50px] w-full flex items-center border-b-[1px] px-[10px] border-black border-opacity-5'>                   
+                    <p className='w-[10%] opacity-100 capitalize font-semibold'>Product id</p>
+                    <p className='w-[30%] opacity-100 capitalize font-semibold'>name</p>
+                    <p className='w-[20%] opacity-100 capitalize font-semibold'>price</p>
+                    <p className='w-[20%] opacity-100 capitalize font-semibold'>Brand</p>
                 </div>
                 {
                   products.map(item => (
-                    <div className='h-[50px] w-full flex items-center border-b-[1px] border-black border-opacity-5'>                   
-                        <p className='w-[10%] opacity-75 capitalize'>{item._id}</p>
-                        <p className='w-[30%] opacity-75 capitalize'>{item.name}</p>
-                        <p className='w-[20%] opacity-75 lowercase'>{item.price}</p>
-                        <p className='w-[20%] opacity-75 capitalize'>{item.brand}</p>
-                        <div className='w-[20%] flex items-center justify-center gap-[25px] text-2xl'>
-                          <Link to={`/admin/product/${item._id}/edit`} className='opacity-50 hover:opacity-100 duration-100'>
-                            <FiEdit/>
+                    <div className={
+                      item._id % 2 == 0 ?
+                      'h-[65px] w-full flex items-center px-[10px] bg-gray-200':
+                      'h-[65px] w-full flex items-center px-[10px]'
+                    }>                   
+                        <p className='w-[10%] opacity-50 capitalize'>{item._id}</p>
+                        <p className='w-[30%] opacity-50 capitalize'>{item.name}</p>
+                        <p className='w-[20%] opacity-50 lowercase'>{item.price}</p>
+                        <p className='w-[20%] opacity-50 capitalize'>{item.brand}</p>
+                        <div className='w-[20%] flex items-center justify-center text-2xl'>
+                          <Link to={`/admin/product/${item._id}/edit`} className='h-[40px] w-[100px] bg-yellow-500 flex items-center justify-center text-sm rounded-[5px] capitalize'>
+                            view
                           </Link>
-                          <Link to={`/product/${item._id}/`}>
-                            <GrAnalytics className=''/>
+                          <Link to={`/product/${item._id}/`} className='h-[40px] w-[100px] bg-blue-600 flex items-center justify-center text-sm rounded-[5px] capitalize text-white'>
+                            details
                           </Link>
                         </div>
                     </div>

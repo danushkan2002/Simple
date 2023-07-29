@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router , Routes, Route } from 'react-router-dom'
+import { HashRouter as Router , Routes, Route } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import Header from './components/Header'
@@ -19,6 +19,7 @@ import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 import DashboardScreen from './screens/DashboardScreen'
+import ReportScreen from './screens/ReportScreen'
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
         <Route path='/order/:id' element={<OrderScreen/>} />
 
         <Route path='/admin/dashboard' element={<DashboardScreen/>} />
+        <Route path='/admin/report' element={<ReportScreen/>} />
         <Route path='/admin/userlist' element={<UserListScreen/>} />
         <Route path='/admin/user/:id/edit' element={<UserEditScreen/>} />
 
