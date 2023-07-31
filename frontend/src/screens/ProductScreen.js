@@ -141,7 +141,7 @@ const ProductScreen = () => {
                                 <button  onClick={addToCartHandler} type='button' className='h-[50px] w-1/2 bg-black border-[1px] border-black'>
                                     <p className='text-sm font-medium text-white'>Add to bag</p>
                                 </button>
-                                <Link className='h-[50px] w-1/2 bg-transparent border-[1px] border-10 flex items-center justify-center'>
+                                <Link to={'/cart/'} className='h-[50px] w-1/2 bg-transparent border-[1px] border-10 flex items-center justify-center'>
                                     <p className='text-sm font-medium text-10'>Buy now</p>
                                 </Link>
                             </div>
