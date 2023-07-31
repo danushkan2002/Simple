@@ -260,7 +260,7 @@ const ProductScreen = () => {
                             </div>
                         </div>
                         {
-                            userInfo && userInfo.isAdmin ?
+                            userInfo && !userInfo.isAdmin ?
                             <form onSubmit={submitHandler} className='h-fit w-full py-[50px]'>
                                 <div className='h-fit w-full flex items-center'>
                                 {
