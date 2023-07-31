@@ -128,7 +128,7 @@ const HomeScreen = () => {
                 products.map(item => (
                   <Link to={`/product/${item._id}/`} key={item._id} className='h-fit max-h-[300px] w-full md:max-w-[200px]'>
                     <div className='h-[225px] border-[1px]'>
-                        <img src={item.image} className='h-full w-fit object-cover scale-[65%]'/>
+                        <img src={item.image} className='h-full w-fit object-contain '/>
                     </div>
                     <div className='h-fit w-full flex flex-col mt-[10px]'>
                       <p className='text-sm capitalize'>{item.name}</p>

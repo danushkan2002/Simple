@@ -144,7 +144,7 @@ const ProductEditScreen = () => {
                   'h-fit w-full flex items-end relative border-b-[1px] border-black border-opacity-10 duration-100'
                 }>
                   
-                  <input type='file' className='capitalize relative z-20 h-[40px] w-full outline-none bg-transparent'></input>
+                  <input type='file' onChange={uploadFileHandler} className='capitalize relative z-20 h-[40px] w-full outline-none bg-transparent'></input>
                 </div>
               </div>
 
