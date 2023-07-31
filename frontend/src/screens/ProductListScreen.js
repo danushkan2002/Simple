@@ -58,7 +58,12 @@ const ProductListScreen = () => {
       <section className='h-fit w-full md:px-[50px] lg:px-[75px] md:py-[50px] flex flex-col gap-[100px]'>
         <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row items-start gap-[25px] md:gap-[50px]'>
           <div className='h-fit w-full flex flex-col justify-center gap-[25px]'>
-            <p className='text-2xl font-semibold'>_Products</p>
+            <div className='h-fit w-full flex items-center justify-between'>
+              <p className='text-2xl font-semibold'>_Products</p>
+              <button onClick={createProductHandler} className='px-[15px] py-[10px] bg-orange-500'>
+                <p className='font-semibold text-white'>Add</p>
+              </button>
+            </div>
             {
               loading ?
               <p>loading</p> :

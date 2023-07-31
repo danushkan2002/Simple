@@ -222,7 +222,7 @@ const ProductEditScreen = () => {
 
             {/* submit */}
             <button type='submit' className='h-[50px] w-full bg-10 capitalize text-white mt-[25px]'>
-                update
+                Submit
             </button>
 
           </form>

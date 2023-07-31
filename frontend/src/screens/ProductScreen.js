@@ -94,7 +94,14 @@ const ProductScreen = () => {
                         </div>
                         <div className='h-fit w-full flex flex-col gap-[25px] px-[15px] md:px-0'>
                             <div className='flex flex-col gap-[5px]'>
-                                <p className='font-semibold'>{product.name}</p>
+                                <p className='text-lg capitalize font-semibold'>{product.name} </p>
+                                {
+                                    userInfo && userInfo.isAdmin?
+                                    <Link to={`/admin/product/${product._id}/edit`}>
+                                        <p className='font-semibold text-white'>Edit</p>
+                                    </Link>:
+                                    ''
+                                }
                                 <Rating value={product.rating} />
                                 <p className='text-2xl font-semibold opacity-50'>LKR {product.price}</p>
                             </div>
@@ -134,9 +141,9 @@ const ProductScreen = () => {
                                 <button  onClick={addToCartHandler} type='button' className='h-[50px] w-1/2 bg-black border-[1px] border-black'>
                                     <p className='text-sm font-medium text-white'>Add to bag</p>
                                 </button>
-                                {/* <button className='h-[50px] w-1/2 bg-transparent border-[1px] border-10'>
-                                    <p className='text-sm font-medium text-10'>Add to bag</p>
-                                </button> */}
+                                <Link className='h-[50px] w-1/2 bg-transparent border-[1px] border-10 flex items-center justify-center'>
+                                    <p className='text-sm font-medium text-10'>Buy now</p>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -253,7 +260,7 @@ const ProductScreen = () => {
                             </div>
                         </div>
                         {
-                            userInfo ?
+                            userInfo && userInfo.isAdmin ?
                             <form onSubmit={submitHandler} className='h-fit w-full py-[50px]'>
                                 <div className='h-fit w-full flex items-center'>
                                 {
